@@ -17,6 +17,8 @@ public class Tester {
 		TreeNode<String> tree1 = SimpleTreeParser.parse(args[0]);
 		TreeNode<String> tree2 = SimpleTreeParser.parse(args[1]);
 		
+		Numberer<String> numberer = new Numberer<String>();
+		
 		System.out.println("Tree1");
 		TreeUtil.printTree(tree1);
 		
@@ -40,6 +42,12 @@ public class Tester {
 		System.out.println("Edit distance postorder: " + postOrderEd);
 		
 		System.out.println("Max: " + Math.max(preOrderEd, postOrderEd));
+		
+		System.out.println("Tree1");
+		TreeUtil.printTree(numberer.doPostorderNumbering(tree1));
+		
+		System.out.println("Tree2");
+		TreeUtil.printTree(numberer.doPostorderNumbering(tree2));
 	}
 
 }
