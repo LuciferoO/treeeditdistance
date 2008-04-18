@@ -38,7 +38,7 @@ public class Tester {
 		int postOrderEd = EditDistance.ed(postOrderTree1,postOrderTree2);
 		System.out.println("Edit distance postorder: " + postOrderEd);
 		
-		int lowerBound = Math.min(preOrderEd, postOrderEd);
+		int lowerBound = Math.max(preOrderEd, postOrderEd);
 		System.out.println("Lower bound: " + lowerBound);
 		long endTime = System.currentTimeMillis();
 		System.out.println("Time to compute the filter: " + (endTime - startTime) / 1000f);
