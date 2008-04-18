@@ -9,14 +9,14 @@ public class Displaced2DIntegerArray {
 	public Displaced2DIntegerArray(int startX, int endX, int startY, int endY) {
 		displacementX_ = startX;
 		displacementY_ = startY;
-		array_ = new int[endX - startX][endY - startY];
+		array_ = new int[endX - startX + 1][endY - startY + 1];
 	}
 	
 	public void set(int x, int y, int value) {
-		array_[displacementX_ + x][displacementY_ + y] = value;
+		array_[x - displacementX_][y - displacementY_] = value;
 	}
 	
 	public int get(int x, int y) {
-		return array_[displacementX_ + x][displacementY_ + y];
+		return array_[x - displacementX_][y - displacementY_];
 	}
 }
