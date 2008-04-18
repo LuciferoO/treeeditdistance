@@ -1,18 +1,16 @@
 package it.unibz.ata.project6.ted;
 
-import it.unibz.apeer.thesis.SimpleTreeParser;
 import it.unibz.apeer.thesis.TreeNode;
-import it.unibz.apeer.thesis.TreeUtil;
 
-import java.text.ParseException;
 
 public class Tester {
 
-	/**
-	 * @param args
-	 * @throws ParseException 
-	 */
-	public static void main(String[] args) throws ParseException {
+	public static void main(String[] args) {
+		
+		if (args.length < 3) {
+			System.out.println("Usage: <fanout> <height> <number of labels>");
+			return;
+		}
 		
 		int fanout = Integer.parseInt(args[0]);
 		int height = Integer.parseInt(args[1]);
