@@ -55,7 +55,7 @@ public class Tester {
 		System.out.println("Tree2 has " + TreeUtil.calculateSize(tree2) + " nodes and " + TreeUtil.calculateNumberOfLeaves(tree2) + " leafs");
 		
 		TreeEditDistance<String> ted = new TreeEditDistance<String>();
-		int d = ted.treeEditDistance(numberedTree1, numberedTree1);
+		int d = ted.treeEditDistance(numberedTree1, numberedTree2);
 		System.out.println("Tree Edit Distance: " + d);
 	}
 
