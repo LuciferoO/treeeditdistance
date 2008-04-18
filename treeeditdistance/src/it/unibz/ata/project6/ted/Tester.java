@@ -43,11 +43,17 @@ public class Tester {
 		
 		System.out.println("Max: " + Math.max(preOrderEd, postOrderEd));
 		
+		TreeNode<NumberedObjectContainer<String>> numberedTree1 = numberer.doPostorderNumbering(tree1);
 		System.out.println("Tree1");
-		TreeUtil.printTree(numberer.doPostorderNumbering(tree1));
+		TreeUtil.printTree(numberedTree1);
 		
+		TreeNode<NumberedObjectContainer<String>> numberedTree2 = numberer.doPostorderNumbering(tree2);
 		System.out.println("Tree2");
-		TreeUtil.printTree(numberer.doPostorderNumbering(tree2));
+		TreeUtil.printTree(numberedTree2);
+		
+		TreeEditDistance<String> ted = new TreeEditDistance<String>();
+		int d = ted.treeEditDistance(numberedTree1, numberedTree2);
+		System.out.println("Tree Edit Distance: " + d);
 	}
 
 }
