@@ -1,7 +1,7 @@
 package it.unibz.ata.project6.ted;
 
 import it.unibz.apeer.thesis.TreeNode;
-import it.unibz.apeer.thesis.util.TreeUtil;
+import it.unibz.apeer.thesis.TreeUtil;
 
 import java.util.Arrays;
 import java.util.List;
@@ -22,17 +22,8 @@ public class TreeEditDistance<T> {
 	public int treeEditDistance(TreeNode<NumberedObjectContainer<T>> T1,
 			TreeNode<NumberedObjectContainer<T>> T2) {
 
-		valuesT1 = TreeOrder.<NumberedObjectContainer<T>>postOrderValues(T1);
-		System.out.println("Postorder T1: ");
-		for (NumberedObjectContainer<T> t : valuesT1) {
-			System.out.println(t + " ");
-		}
-		
+		valuesT1 = TreeOrder.<NumberedObjectContainer<T>>postOrderValues(T1);		
 		valuesT2 = TreeOrder.<NumberedObjectContainer<T>>postOrderValues(T2);
-		System.out.println("Postorder T2: ");
-		for (NumberedObjectContainer<T> t : valuesT2) {
-			System.out.println(t + " ");
-		}
 		
 		int td[][] = new int[TreeUtil.calculateSize(T1)][TreeUtil
 				.calculateSize(T2)];
@@ -45,12 +36,12 @@ public class TreeEditDistance<T> {
 				forestDist(kr1[x], kr2[y], l1, l2, td);
 			}
 		}
-		for (int[] a : td) {
+		/*for (int[] a : td) {
 			for (int b : a) {
 				System.out.print(b + "\t");
 			}
 			System.out.println();
-		}
+		}*/
 		return td[td.length - 1][td[td.length - 1].length - 1];
 	}
 

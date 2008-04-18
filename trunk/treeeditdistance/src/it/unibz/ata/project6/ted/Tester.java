@@ -2,7 +2,7 @@ package it.unibz.ata.project6.ted;
 
 import it.unibz.apeer.thesis.SimpleTreeParser;
 import it.unibz.apeer.thesis.TreeNode;
-import it.unibz.apeer.thesis.util.TreeUtil;
+import it.unibz.apeer.thesis.TreeUtil;
 
 import java.text.ParseException;
 
@@ -57,6 +57,25 @@ public class Tester {
 		TreeEditDistance<String> ted = new TreeEditDistance<String>();
 		int d = ted.treeEditDistance(numberedTree1, numberedTree2);
 		System.out.println("Tree Edit Distance: " + d);
+		
+		TreeGenerator<String> generator = new TreeGenerator<String>();
+		String[] labels = {"a", "b", "c", "d", "e"};
+		tree1 = generator.generate(3, 2, labels);
+		TreeUtil.printTree(tree1);
+		String[] labels2 = {"z", "y", "x", "d", "e"};
+		tree2 = generator.generate(3, 2, labels2);
+		TreeUtil.printTree(tree2);
+		
+		preOrderTree1 = TreeOrder.preOrder(tree1);
+		postOrderTree1 = TreeOrder.postOrder(tree1);
+		preOrderTree2 = TreeOrder.preOrder(tree2);
+		postOrderTree2 = TreeOrder.postOrder(tree2);
+		preOrderEd = EditDistance.ed(preOrderTree1,preOrderTree2);
+		postOrderEd = EditDistance.ed(postOrderTree1,postOrderTree2);
+		System.out.println("Edit distance preorder: " + preOrderEd);
+		System.out.println("Edit distance postorder: " + postOrderEd);
+		
+		d = ted.treeEditDistance(numberer.doPostorderNumbering(tree1), numberer.doPostorderNumbering(tree2));
+		System.out.println("Tree Edit Distance: " + d);		
 	}
-
 }
