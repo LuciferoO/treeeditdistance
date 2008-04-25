@@ -1,6 +1,9 @@
 package it.unibz.ata.project6.ted;
 
+import javax.swing.plaf.TreeUI;
+
 import it.unibz.apeer.thesis.TreeNode;
+import it.unibz.apeer.thesis.TreeUtil;
 
 
 public class Tester {
@@ -26,6 +29,9 @@ public class Tester {
 		String[] labels = LabelGenerator.generate(nLabels);
 		tree1 = generator.generate(fanout, height, labels);
 		tree2 = generator.generate(fanout, height, labels);
+		
+		System.out.println(TreeUtil.calculateSize(tree1));
+		System.out.println(TreeUtil.calculateSize(tree2));
 		
 		long startTime = System.currentTimeMillis();
 		String preOrderTree1 = TreeOrder.preOrder(tree1);

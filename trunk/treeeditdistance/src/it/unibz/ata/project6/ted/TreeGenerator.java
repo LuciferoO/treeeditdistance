@@ -11,7 +11,8 @@ public class TreeGenerator<T> {
 		}
 		TreeNode<T> node = new SimpleTreeNode<T>(labels[(int)(Math.random() * labels.length)]);
 		if (height > 0) {
-			for (int i = 0; i < Math.random() * fanout; i++) {
+			int nChilds = (int)(Math.random() * fanout);
+			for (int i = 0; i < nChilds; i++) {
 				node.addChild(generate(fanout, height - 1, labels));
 			}
 		}
