@@ -27,6 +27,6 @@ public class NumberedObjectContainer<T> {
 	}
 	
 	public String toString() {
-		return id_ + ": " + object_.toString();
+		return object_.toString();
 	}
 }
