@@ -1,7 +1,5 @@
 package it.unibz.ata.project6.ted;
 
-import javax.swing.plaf.TreeUI;
-
 import it.unibz.apeer.thesis.TreeNode;
 import it.unibz.apeer.thesis.TreeUtil;
 
