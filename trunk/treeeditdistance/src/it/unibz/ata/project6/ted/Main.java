@@ -12,6 +12,10 @@ import java.util.Vector;
 public class Main {
 	
 	public static void main(String args[]) throws IOException, ParseException {
+		if (args.length < 2) {
+			System.out.println("USAGE: <testfile1> <testfile2>");
+			return;
+		}
 		TestfileReader reader = new TestfileReader(args[0]);
 		String code;
 		Numberer<String> numberer = new Numberer<String>();
