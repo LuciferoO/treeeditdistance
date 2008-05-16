@@ -37,7 +37,10 @@ public class Main {
 		}
 		System.out.println(trees2.size() + " trees parsed");
 		double treshold = Double.parseDouble(args[2]);
+		long startTime = System.currentTimeMillis();
 		approxJoin(trees1, trees2, idsTree1, idsTree2, treshold);
+		long endTime = System.currentTimeMillis();
+		System.out.println("Time: " + (endTime - startTime) / 1000.0);
 	}
 	
 	public static void approxJoin(List<TreeNode<NumberedObjectContainer<String>>> trees1, List<TreeNode<NumberedObjectContainer<String>>> trees2,  List<Integer>idsTree1, List<Integer>idsTree2, double treshold) {
