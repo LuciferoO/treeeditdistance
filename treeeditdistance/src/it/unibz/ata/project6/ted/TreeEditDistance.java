@@ -13,9 +13,6 @@ public class TreeEditDistance<T> {
 	private static int W_REN = 1;
 	private static int W_NOP = 0;
 	
-	/*private NumberedObjectContainer<T>[] valuesT1;
-	private NumberedObjectContainer<T>[] valuesT2;*/
-	
 	private List<NumberedObjectContainer<T>> valuesT1;
 	private List<NumberedObjectContainer<T>> valuesT2;
 

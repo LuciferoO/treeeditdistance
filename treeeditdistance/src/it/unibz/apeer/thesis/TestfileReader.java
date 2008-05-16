@@ -19,12 +19,16 @@ public class TestfileReader {
 		reader_ = new BufferedReader(new InputStreamReader(input));
 	}
 	
-	public String nextTreeCode() throws IOException {
+	public TreeCodeWithID nextTreeCode() throws IOException {
+		TreeCodeWithID tree = null;
 		String line = reader_.readLine();
 		if (line != null) {
+			tree = new TreeCodeWithID();
 			int skipPos = line.indexOf(':');
-			line = line.substring(skipPos + 1, line.length());
+			tree.id = Integer.parseInt(line.substring(0, skipPos));
+			tree.code = line.substring(skipPos + 1, line.length());
 		}
-		return line;
+		return tree;
 	}
 }
+
