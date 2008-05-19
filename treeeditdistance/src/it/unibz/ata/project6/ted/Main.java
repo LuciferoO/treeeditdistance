@@ -40,7 +40,7 @@ public class Main {
 		long startTime = System.currentTimeMillis();
 		approxJoin(trees1, trees2, idsTree1, idsTree2, treshold);
 		long endTime = System.currentTimeMillis();
-		System.out.println("Time: " + (endTime - startTime) / 1000.0);
+		System.out.println("Time: " + (endTime - startTime) / 1000.0 + " sec");
 	}
 	
 	public static void approxJoin(List<TreeNode<NumberedObjectContainer<String>>> trees1, List<TreeNode<NumberedObjectContainer<String>>> trees2,  List<Integer>idsTree1, List<Integer>idsTree2, double treshold) {
@@ -67,15 +67,12 @@ public class Main {
 						}
 						hasFound = true;
 						++nMatches;
-						System.out.print(idsTree1.get(i) + ", " + idsTree2.get(j) + ": " + lb + "/(" + sizeT1 + " + " + sizeT2 + ") = " + normLb);
-						System.out.print(" " + normTed);
-						System.out.println();
+						System.out.println(idsTree1.get(i) + ", " + idsTree2.get(j) + ": " + lb + "/(" + sizeT1 + " + " + sizeT2 + ") = " + normLb + ", real = " + normTed);
 						if (idsTree1.get(i).equals(idsTree2.get(j))) {
 							++nCorrects;
 						}
 					}
 				}
-				//System.out.println();
 			}
 		}
 		System.out.println("\nRESULTS:");
