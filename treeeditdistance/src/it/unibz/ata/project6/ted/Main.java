@@ -45,10 +45,10 @@ public class Main {
 	
 	public static void approxJoin(List<TreeNode<NumberedObjectContainer<String>>> trees1, List<TreeNode<NumberedObjectContainer<String>>> trees2,  List<Integer>idsTree1, List<Integer>idsTree2, double treshold) {
 		TreeEditDistance<String> ted = new TreeEditDistance<String>();
+		int nCorrects = 0;
 		int nMatches = 0;
-		int nTotal = 0;
 		int nCandidates = 0;
-		int multipleMatches = 0;
+		int nMultipleMatches = 0;
 		for (int i = 0; i <  trees1.size(); i++) {
 			TreeNode<NumberedObjectContainer<String>> t1 = trees1.get(i);
 			int sizeT1 = TreeUtil.calculateSize(t1);
@@ -58,21 +58,20 @@ public class Main {
 				int lb = LowerBoundFilter.calculate(t1, t2);
 				int sizeT2 = TreeUtil.calculateSize(t2);
 				double normLb = normalize(lb, sizeT1, sizeT2);
-				//System.out.print(i + ", " + j + ": " + lb + "/(" + sizeT1 + " + " + sizeT2 + ") = " + normLb);
 				if (normLb <= treshold) {
 					++nCandidates;
 					double normTed = normalize(ted.treeEditDistance(t1, t2), sizeT1, sizeT2);
 					if (normTed <= treshold) {
 						if (hasFound) {
-							++multipleMatches;
+							++nMultipleMatches;
 						}
 						hasFound = true;
-						++nTotal;
+						++nMatches;
 						System.out.print(idsTree1.get(i) + ", " + idsTree2.get(j) + ": " + lb + "/(" + sizeT1 + " + " + sizeT2 + ") = " + normLb);
 						System.out.print(" " + normTed);
 						System.out.println();
 						if (idsTree1.get(i).equals(idsTree2.get(j))) {
-							++nMatches;
+							++nCorrects;
 						}
 					}
 				}
@@ -80,10 +79,10 @@ public class Main {
 			}
 		}
 		System.out.println("\nRESULTS:");
-		System.out.println(trees1.size() + " to match, " + nMatches + " found: " + nMatches/(double)trees1.size());
-		System.out.println(nMatches + " out of " + nTotal + " are correct: " + nMatches/(double)nTotal);
-		System.out.println(nCandidates + " candidates, " + nTotal + " real: " + nTotal/(double)nCandidates);
-		System.out.println(multipleMatches + " ouf of " + nTotal + " have mutiple matches: " + multipleMatches/(double)nTotal);
+		System.out.println("Candidates: " + nCandidates);
+		System.out.println("Matches: " + nMatches);
+		System.out.println("Corrects: " + nCorrects);
+		System.out.println("Multiple Matches: " + nMultipleMatches);
 	}
 	
 	public static double normalize(int distance, int sizeTree1, int sizeTree2) {
