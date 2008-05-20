@@ -15,7 +15,7 @@ public class Main {
 	
 	public static void main(String args[]) throws IOException, ParseException {
 		if (args.length < 3) {
-			System.out.println("USAGE: <testfile1> <testfile2> <treshold for lowerbound in %>");
+			System.out.println("USAGE: <testfile1> <testfile2> <treshold>");
 			return;
 		}
 		TestfileReader reader = new TestfileReader(args[0]);

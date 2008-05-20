@@ -8,7 +8,8 @@ import java.util.Vector;
 public class TreeOrder {
 	
 	public static String preOrder(TreeNode<?> root) {
-		String result = stringHash(root.getUserObject());
+		String result = "";
+		result += stringHash(root.getUserObject());
 		for (TreeNode<?> c : root.getChildren()) {
 			result += preOrder(c);
 		}
@@ -23,8 +24,8 @@ public class TreeOrder {
 		return result + stringHash(root.getUserObject());
 	}
 	
-	private static String stringHash(Object o) {
-		return Character.toString(Character.toChars(Math.abs(((o.toString().hashCode()) + 1) % (int)Math.pow(2, 16)))[0]);
+	private static Character stringHash(Object o) {
+		return Character.toChars(Math.abs(((o.toString().hashCode()) + 1) % (int)Math.pow(2, 16)))[0];
 	}
 	
 	public static <T> List<T> postOrderValues(TreeNode<T> root) {
